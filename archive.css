@@ -1,0 +1,607 @@
+/* =====================================================
+   YOUSEF'S ARCHIVE - MAIN CSS (COMPACT & FIXED CONTROLS)
+===================================================== */
+
+:root {
+    --royal-blue: #1e3d59;
+    --blueprint-bg: #0f172a;
+    --blueprint-card: #1e293b;
+    --blueprint-text: #e2e8f0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #1a1a1a;
+    font-family: 'Cormorant Garamond', serif;
+    color: #2c2c2c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Archive Wrapper */
+.archive-wrapper {
+    width: 100%;
+    max-width: 680px;
+    height: 100vh;
+    max-height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 15px 50px 15px;
+    position: relative;
+}
+
+/* Book Container */
+.book {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #f4ecdf;
+    border-radius: 6px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 0 40px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    border: 1px solid #d1c7bd;
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Page Styling */
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 30px 35px;
+    display: none;
+    background: #f4ecdf;
+    transition: background-color 0.4s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+.page-content {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 50px;
+}
+
+/* Scrollbar */
+.page-content::-webkit-scrollbar {
+    width: 5px;
+}
+.page-content::-webkit-scrollbar-thumb {
+    background: #d1c7bd;
+    border-radius: 3px;
+}
+
+/* Typography & Labels */
+.page-label {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--royal-blue);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+h1, h2 {
+    font-family: 'Cormorant Garamond', serif;
+    color: #1c1c1c;
+    margin-bottom: 15px;
+}
+
+h1 { font-size: 2.5rem; }
+h2 {
+    font-size: 1.75rem;
+    border-bottom: 1px solid #d1c7bd;
+    padding-bottom: 6px;
+}
+
+.book-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.arabic-text {
+    font-family: 'Amiri', serif;
+    direction: rtl;
+    text-align: right;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Cover Page */
+.cover-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+.cover-stamp {
+    border: 1px solid #7f756d;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    color: #7f756d;
+}
+
+.cover-line {
+    width: 45px;
+    height: 1px;
+    background: #7f756d;
+    margin: 15px 0;
+}
+
+.cover-subtitle {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.cover-number {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #1c1c1c;
+    margin-bottom: 8px;
+}
+
+.cover-note {
+    font-size: 0.8rem;
+    color: #7f756d;
+    font-style: italic;
+}
+
+/* Lore & Grids */
+.file-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.lore-card {
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid #d1c7bd;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.lore-card span {
+    font-size: 0.7rem;
+    color: #7f756d;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.lore-card strong {
+    font-size: 0.95rem;
+    display: block;
+    margin-bottom: 4px;
+    color: var(--royal-blue);
+}
+
+.lore-card p {
+    font-size: 0.85rem;
+    color: #555;
+}
+
+/* Bandaq Section */
+.bandaq-section {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.bandaq-trigger {
+    background: #2c2c2c;
+    color: #f4ecdf;
+    border: none;
+    padding: 6px 14px;
+    font-family: 'Cormorant Garamond', serif;
+    cursor: pointer;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.bandaq-trigger:hover { background: var(--royal-blue); }
+
+.bandaq-photo {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 8px;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: none;
+}
+
+.bandaq-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bandaq-caption { font-weight: bold; font-size: 0.85rem; }
+
+/* Evidence Board */
+.evidence-page .page-content { overflow-y: auto; }
+
+.evidence-board {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: #eae2d5;
+    border: 1px dashed #c5b8a9;
+    border-radius: 6px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.evidence-photo {
+    position: absolute;
+    background: #fff;
+    padding: 6px 6px 20px 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    width: 105px;
+    text-align: center;
+}
+
+.evidence-photo img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+}
+
+.photo-tape {
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 10px;
+    background: rgba(230, 220, 200, 0.6);
+    border: 1px dashed #b5a899;
+}
+
+.photo-label { margin-top: 4px; }
+.photo-label span { font-size: 0.55rem; color: #7f756d; display: block; }
+.photo-label strong { font-size: 0.75rem; display: block; }
+.photo-label small { font-size: 0.6rem; color: #666; display: block; line-height: 1.1; }
+
+.l-photo { top: 15px; left: 10px; transform: rotate(-5deg); }
+.dexter-photo { top: 15px; right: 10px; transform: rotate(4deg); }
+.hannibal-photo { bottom: 15px; left: 10px; transform: rotate(3deg); }
+.conan-photo { bottom: 15px; right: 10px; transform: rotate(-4deg); }
+
+.yousef-photo {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    z-index: 5;
+    cursor: pointer;
+}
+
+.yousef-photo img { height: 95px; }
+.photo-under { display: none; font-size: 0.7rem; padding: 4px; background: #fff; }
+
+.evidence-conclusion {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,0.85);
+    padding: 3px 10px;
+    font-size: 0.65rem;
+    text-align: center;
+    border-radius: 3px;
+    width: 80%;
+}
+
+/* Favorites Page */
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.fav-item {
+    border: 1px dashed #d1c7bd;
+    padding: 6px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 6px;
+}
+
+.fav-item img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.fav-item small {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: var(--royal-blue);
+}
+
+/* Funny & Secret Files */
+.funny-file, .secret-file {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #d1c7bd;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 12px;
+    position: relative;
+}
+
+.funny-stamp {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    border: 1px solid #c94a4a;
+    color: #c94a4a;
+    padding: 2px 6px;
+    font-size: 0.65rem;
+    transform: rotate(8deg);
+    letter-spacing: 1px;
+}
+
+.funny-conclusion {
+    margin-top: 12px;
+    border-top: 1px dashed #d1c7bd;
+    padding-top: 8px;
+}
+
+.memory-item, .open-when button {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid #d1c7bd;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    transition: background 0.2s;
+}
+
+.open-when button:hover, .memory-item:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.letter, .secret-message, .incident-note {
+    margin-top: 12px;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #d1c7bd;
+    display: none;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+
+.secret-open-button {
+    background: #c94a4a;
+    color: #fff;
+    border: none;
+    padding: 5px 12px;
+    margin-top: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.hidden-note { margin-top: 15px; text-align: center; }
+.hidden-note button {
+    background: none;
+    border: none;
+    color: #7f756d;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+/* Final Page */
+.final-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+.final-mark { font-size: 2.2rem; font-weight: 700; margin-bottom: 15px; }
+.final-text { margin-bottom: 12px; font-size: 1.05rem; max-width: 400px; }
+.signature { font-style: italic; margin-top: 15px; font-size: 1.15rem; }
+
+/* =====================================================
+   COMPACT & FIXED BOOK CONTROLS (أزرار التنقل المصغرة)
+===================================================== */
+.book-controls {
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(30, 61, 89, 0.92);
+    padding: 4px 12px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.book-controls button {
+    background: #ffffff;
+    color: #1e3d59;
+    border: none;
+    padding: 3px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+}
+
+.book-controls button:hover {
+    background: #fdfbf7;
+    color: #b2533e;
+    transform: scale(1.04);
+}
+
+#pageCounter {
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    min-width: 45px;
+    text-align: center;
+}
+
+/* =====================================================
+   FOX EASTER EGG & CENTER MODAL
+===================================================== */
+@keyframes foxWiggle {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-12deg) scale(1.15); }
+    75% { transform: rotate(12deg) scale(1.15); }
+}
+
+.fox-trigger-wrapper { text-align: center; margin-top: 12px; }
+
+.fox-trigger-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: inline-block;
+    animation: foxWiggle 2.2s infinite ease-in-out;
+    transition: transform 0.2s ease;
+    user-select: none;
+}
+
+.fox-trigger-btn:hover { transform: scale(1.25); }
+
+.fox-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.fox-modal-card {
+    background: #fdfbf7;
+    border: 1.5px solid var(--royal-blue);
+    padding: 24px 20px;
+    border-radius: 12px;
+    max-width: 310px;
+    width: 85%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: popupAppear 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popupAppear {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.fox-modal-card p {
+    font-family: 'Amiri', serif;
+    font-size: 1rem;
+    color: #1e293b;
+    line-height: 1.7;
+    margin: 0 0 15px 0;
+    direction: rtl;
+}
+
+.fox-modal-close {
+    background: var(--royal-blue);
+    color: #fff;
+    border: none;
+    padding: 6px 18px;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.fox-modal-close:hover { opacity: 0.9; }
+
+/* =====================================================
+   BLUEPRINT NIGHT MODE & MORSE BEACON
+===================================================== */
+body.blueprint-mode { background-color: #0b1120 !important; }
+
+body.blueprint-mode .book, 
+body.blueprint-mode .page {
+    background-color: var(--blueprint-card) !important;
+    border-color: #334155 !important;
+    color: var(--blueprint-text) !important;
+}
+
+body.blueprint-mode h1, 
+body.blueprint-mode h2, 
+body.blueprint-mode .cover-number { color: #f8fafc !important; }
+
+body.blueprint-mode .page-label, 
+body.blueprint-mode .cover-stamp, 
+body.blueprint-mode .cover-subtitle, 
+body.blueprint-mode .cover-note {
+    color: #94a3b8 !important;
+    border-color: #475569 !important;
+}
+
+body.blueprint-mode .lore-card, 
+body.blueprint-mode .fav-item, 
+body.blueprint-mode .funny-file, 
+body.blueprint-mode .secret-file, 
+body.blueprint-mode .memory-item, 
+body.blueprint-mode .open-when button {
+    background: rgba(15, 23, 42, 0.6) !important;
+    border-color: #334155 !important;
+    color: #e2e8f0 !important;
+}
+
+.morse-beacon-blue {
+    box-shadow: 0 0 10px #00f2fe, 0 0 20px rgba(0, 242, 254, 0.4);
+    background-color: rgba(0, 242, 254, 0.1) !important;
+    border: 1px solid #00f2fe !important;
+}

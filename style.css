@@ -1,0 +1,470 @@
+/* =================================
+   RESET
+================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =================================
+   VARIABLES
+================================= */
+:root {
+    --paper-light: #ead9b8;
+    --paper: #e2cfaa;
+    --paper-dark: #c4a875;
+    --ink: #536875;
+    --ink-dark: #3f5159;
+    --brown: #6d5842;
+    --brown-dark: #4c3b2c;
+    --gold: #b89255;
+    --shadow: rgba(60, 45, 30, 0.28);
+}
+
+/* =================================
+   BODY
+================================= */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #d8c7a5 0%, #b9a47d 100%);
+    font-family: "Cormorant Garamond", serif;
+    color: var(--brown-dark);
+}
+
+/* =================================
+   BOOK
+================================= */
+.book {
+    position: relative;
+    width: min(900px, 94vw);
+    height: min(650px, 88vh);
+    perspective: 2400px;
+}
+
+/* =================================
+   PAGES
+================================= */
+.page {
+    position: absolute;
+    inset: 0;
+    padding: 58px 68px;
+    background:
+        radial-gradient(circle at 20% 15%, rgba(255,255,255,0.20), transparent 35%),
+        radial-gradient(circle at 80% 85%, rgba(120,85,40,0.08), transparent 40%),
+        var(--paper-light);
+    border: 1px solid rgba(100, 73, 42, 0.28);
+    box-shadow: 0 18px 35px rgba(60,45,30,0.22), inset 0 0 45px rgba(100,70,35,0.06);
+    transform-origin: left center;
+    transition: transform 0.9s cubic-bezier(.77,0,.18,1);
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+
+.page::before {
+    content: "";
+    position: absolute;
+    inset: 20px;
+    border: 1px solid rgba(100,73,42,0.20);
+    pointer-events: none;
+}
+
+.page::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 55px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(90,65,35,0.10));
+    pointer-events: none;
+}
+
+.page:nth-child(1) { z-index: 4; }
+.page:nth-child(2) { z-index: 3; }
+.page:nth-child(3) { z-index: 2; }
+.page:nth-child(4) { z-index: 1; }
+
+.page.flipped {
+    transform: rotateY(-180deg);
+    pointer-events: none;
+}
+
+.page-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* =================================
+   TYPOGRAPHY
+================================= */
+.eyebrow,
+.page-label,
+.est {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: var(--ink);
+    text-transform: uppercase;
+}
+
+.page-label {
+    margin-bottom: 25px;
+    opacity: 0.88;
+}
+
+.page h1,
+.page h2,
+.page h3 {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--brown-dark);
+}
+
+.arabic-page,
+.arabic-card {
+    font-family: "Noto Naskh Arabic", "Amiri", serif;
+}
+
+/* =================================
+   COVER
+================================= */
+.cover {
+    background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,0.22), transparent 35%),
+        linear-gradient(135deg, #eadbbc, #d1b987);
+}
+
+.cover-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.cover h1 {
+    margin-top: 30px;
+    font-family: "Ballet", cursive;
+    font-size: clamp(4rem, 10vw, 7rem);
+    font-weight: 400;
+    color: var(--ink-dark);
+}
+
+.cover h2 {
+    margin-top: -15px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    letter-spacing: 12px;
+    color: var(--brown-dark);
+}
+
+.cover-line {
+    width: 130px;
+    height: 1px;
+    margin: 25px 0;
+    background: var(--gold);
+}
+
+/* =================================
+   BUTTONS & HOVER EFFECTS (CAT PAW)
+================================= */
+.page-button {
+    margin-top: 35px;
+    padding: 11px 24px;
+    border: 1px solid rgba(63,81,89,0.4);
+    background: transparent;
+    color: var(--ink-dark);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    position: relative;
+    overflow: visible;
+}
+
+.page-button:hover {
+    background: var(--ink-dark);
+    color: var(--paper-light);
+    transform: translateY(-2px);
+}
+
+.page-button:hover::after {
+    content: " 🐾";
+    display: inline-block;
+    animation: bounceCat 0.5s infinite alternate ease-in-out;
+}
+
+@keyframes bounceCat {
+    from { transform: translateY(0) scale(1); }
+    to { transform: translateY(-4px) scale(1.2); }
+}
+
+/* =================================
+   BIRTHDAY & CARTOON CAKE
+================================= */
+.birthday-page h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    letter-spacing: 7px;
+    color: var(--ink-dark);
+}
+
+.birthday-subtitle {
+    margin-top: 8px;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--brown);
+}
+
+.cake-wrapper {
+    position: relative;
+    width: 260px;
+    height: 230px;
+    margin-top: 10px;
+}
+
+.cake-bottom {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 55px;
+    background: #f7d6e0;
+    border-radius: 30px;
+    box-shadow: inset 0 -6px rgba(180, 100, 120, 0.2);
+    border: 3px solid #4c3b2c;
+}
+
+.cake-middle {
+    position: absolute;
+    bottom: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 170px;
+    height: 50px;
+    background: #fff1f2;
+    border-radius: 25px;
+    box-shadow: inset 0 -6px rgba(180, 100, 120, 0.15);
+    border: 3px solid #4c3b2c;
+}
+
+.cake-top {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 45px;
+    background: #fce7f3;
+    border-radius: 25px;
+    border: 3px solid #4c3b2c;
+}
+
+.frosting-drip {
+    position: absolute;
+    bottom: 148px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 22px;
+    background: #ff8fab;
+    border-radius: 20px;
+    z-index: 5;
+    border: 3px solid #4c3b2c;
+}
+
+.cherry {
+    position: absolute;
+    bottom: 172px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: #ff4d6d;
+    border-radius: 50%;
+    z-index: 6;
+    border: 2px solid #4c3b2c;
+}
+
+.cherry::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 9px;
+    width: 5px;
+    height: 10px;
+    border-top: 3px solid #4c3b2c;
+    border-right: 3px solid #4c3b2c;
+    border-radius: 0 50% 0 0;
+}
+
+.cake-plate {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    height: 16px;
+    background: #e2e8f0;
+    border-radius: 50%;
+    border: 3px solid #4c3b2c;
+    box-shadow: 0 4px 8px rgba(60,45,30,0.15);
+}
+
+.cake-number {
+    position: absolute;
+    left: 50%;
+    bottom: 85px;
+    transform: translateX(-50%);
+    z-index: 7;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4c3b2c;
+}
+
+/* =================================
+   CANDLES
+================================= */
+.candles {
+    position: absolute;
+    left: 50%;
+    bottom: 162px;
+    transform: translateX(-50%);
+    z-index: 8;
+    width: 90px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.candle {
+    position: relative;
+    width: 7px;
+    height: 35px;
+    border-radius: 3px;
+    background: #ffe6a7;
+    border: 2px solid #4c3b2c;
+}
+
+.candle span {
+    position: absolute;
+    width: 9px;
+    height: 15px;
+    top: -15px;
+    left: -2px;
+    border-radius: 50% 50% 50% 50%;
+    background: #ffb703;
+    border: 2px solid #4c3b2c;
+    box-shadow: 0 0 10px rgba(255, 183, 3, 0.8);
+    animation: flame 0.8s infinite alternate ease-in-out;
+}
+
+@keyframes flame {
+    from { transform: scale(0.8) rotate(-4deg); background: #ffb703; }
+    to { transform: scale(1.15) rotate(4deg); background: #fb8500; box-shadow: 0 0 14px rgba(251, 133, 0, 0.9); }
+}
+
+/* =================================
+   MESSAGE
+================================= */
+.message-page {
+    background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.16), transparent 35%), var(--paper);
+}
+
+.arabic-message {
+    direction: rtl;
+    font-family: "Amiri", serif;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    line-height: 2;
+    color: var(--brown-dark);
+}
+
+.message-divider {
+    width: 90px;
+    height: 1px;
+    margin: 30px 0;
+    background: var(--gold);
+}
+
+.english-message {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--ink);
+}
+
+/* =================================
+   ARCHIVE INTRO
+================================= */
+.small-title {
+    margin-bottom: 15px;
+    color: var(--ink);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+}
+
+.archive-intro h2 {
+    font-size: clamp(3rem, 7vw, 5rem);
+    letter-spacing: 8px;
+    color: var(--ink-dark);
+}
+
+.archive-description {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+/* =================================
+   MUSIC BUTTON
+================================= */
+.music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    background: var(--paper-light);
+    border: 1px solid var(--brown);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: var(--brown-dark);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.music-btn:hover {
+    background: var(--ink-dark);
+    color: #fff;
+}
+
+/* =================================
+   MOBILE
+================================= */
+@media (max-width: 600px) {
+    body { padding: 10px; }
+    .book { width: 94vw; height: 82vh; min-height: 520px; }
+    .page { padding: 40px 28px; }
+    .page::before { inset: 12px; }
+    .cover h1 { font-size: 4rem; }
+    .cover h2 { font-size: 2rem; letter-spacing: 7px; }
+    .birthday-page h2 { font-size: 2.4rem; letter-spacing: 4px; }
+    .cake-wrapper { transform: scale(0.82); margin-top: 15px; }
+    .arabic-message { font-size: 1.35rem; }
+    .page-button { margin-top: 25px; }
+}

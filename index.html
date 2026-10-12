@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yousef's Archive</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Ballet&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- زر ومشغل موسيقى مرئي وآمن لأغنية SWIM -->
+<div class="music-container">
+    <button id="musicToggle" class="music-btn" onclick="toggleMusic()">🎵 تشغيل أغنية SWIM</button>
+    <div id="youtube-audio-container" style="display:none; position:absolute; left:-9999px;">
+        <iframe id="bgMusic" width="100" height="100" src="https://www.youtube.com/embed/9N1YTUdkQfA?enablejsapi=1&loop=1&playlist=9N1YTUdkQfA" frameborder="0"></iframe>
+    </div>
+</div>
+
+</div>
+
+<main class="book" id="mainBook">
+
+    <!-- =========================
+         PAGE 1 — COVER
+    ========================== -->
+    <section class="page cover">
+        <div class="cover-content">
+            <p class="eyebrow">A PERSONAL ARCHIVE</p>
+            <h1>Yousef's</h1>
+            <h2>ARCHIVE</h2>
+            <div class="cover-line"></div>
+            <p class="est">EST. SEPTEMBER</p>
+            <button class="page-button" onclick="nextPage()">Open Archive →</button>
+        </div>
+    </section>
+
+
+    <!-- =========================
+         PAGE 2 — BIRTHDAY & CARTOON CAKE
+    ========================== -->
+    <section class="page birthday-page">
+        <div class="page-content">
+            <p class="page-label">FILE 00 — SPECIAL ENTRY</p>
+            <h2>HAPPY BIRTHDAY</h2>
+            <p class="birthday-subtitle">Twenty looks suspiciously good on you.</p>
+
+            <div class="cake-wrapper">
+                <div class="cake-number">20</div>
+                
+                <div class="candles">
+                    <div class="candle"><span></span></div>
+                    <div class="candle"><span></span></div>
+                    <div class="candle"><span></span></div>
+                    <div class="candle"><span></span></div>
+                    <div class="candle"><span></span></div>
+                </div>
+
+                <div class="frosting-drip"></div>
+                <div class="cherry"></div>
+
+                <div class="cake cake-top"></div>
+                <div class="cake cake-middle"></div>
+                <div class="cake cake-bottom"></div>
+
+                <div class="cake-plate"></div>
+            </div>
+
+            <button class="page-button" onclick="nextPage()">Continue →</button>
+        </div>
+    </section>
+
+
+    <!-- =========================
+         PAGE 3 — MESSAGE
+    ========================== -->
+    <section class="page message-page">
+        <div class="page-content">
+            <p class="page-label">A SMALL NOTE</p>
+            <div class="arabic-message">
+                <p>
+                    كنتُ أتمنّى لو كان لي أن أضع
+                    <br>
+                    هذه الهدية بين يديك،
+                    <br>
+                    بدلًا من أن أتركها تصل إليك
+                    <br>
+                    من بعيد.
+                </p>
+            </div>
+            <div class="message-divider"></div>
+            <p class="english-message">Some things are easier to write than to say.</p>
+            <button class="page-button" onclick="nextPage()">One More Page →</button>
+        </div>
+    </section>
+
+
+    <!-- =========================
+         PAGE 4 — ARCHIVE INTRO
+    ========================== -->
+    <section class="page archive-intro">
+        <div class="page-content">
+            <p class="page-label">ACCESS GRANTED</p>
+            <p class="small-title">A LITTLE SOMETHING FOR YOU</p>
+            <h2>THE ARCHIVE</h2>
+            <p class="archive-description">A little place made just for you.</p>
+            <button class="page-button" onclick="enterArchive()">Enter the Archive →</button>
+        </div>
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>

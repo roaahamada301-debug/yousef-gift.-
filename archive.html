@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yousef's Archive</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Ballet&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="archive.css">
+</head>
+<body>
+
+<!-- =====================================================
+     ARCHIVE
+===================================================== -->
+<main class="archive-wrapper">
+
+    <!-- =================================================
+         BOOK
+================================================== -->
+    <div class="book" id="archiveBook">
+
+        <!-- =============================================
+             PAGE 1 — WELCOME
+        ============================================== -->
+        <section class="page">
+            <div class="page-content cover-page">
+                <!-- زرار وضع الليل الأزرق جوه الغلاف بشكل أنيق -->
+                <div style="margin-bottom: 15px;">
+                    <button class="night-mode-toggle" onclick="toggleBlueprintMode()" title="Blueprint Mode" style="background: #1e3d59; color: #fff; border: none; padding: 5px 14px; border-radius: 15px; font-family: 'Cormorant Garamond', serif; cursor: pointer; font-size: 0.85rem; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">🌙 Blueprint Mode</button>
+                </div>
+
+                <p class="page-label">PRIVATE ARCHIVE</p>
+                <div class="cover-stamp">EST. SEPTEMBER 🍂</div>
+                <h1>Yousef's <span>Archive</span></h1>
+                <div class="cover-line"></div>
+                <p class="cover-subtitle">
+                    a completely unnecessary collection<br>
+                    of observations, incidents, and evidence.
+                </p>
+                <div class="cover-number">20</div>
+                <p class="cover-note">classified — but not particularly important</p>
+
+                <!-- زرار الثعلب المتهز -->
+                <div class="fox-trigger-wrapper">
+                    <button class="fox-trigger-btn" onclick="toggleCutePopup()" title="ملاحظة من الثعلب 🦊">🦊</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- النافذة المنبثقة للثعلب في منتصف الشاشة -->
+        <div id="foxModalOverlay" class="fox-modal-overlay" onclick="closePopupOnOverlay(event)">
+            <div class="fox-modal-card">
+                <p>شكراً لأنك شخص يسهل الالتفات إليه وسط زحام التفاصيل.. وجودك يمنح الأشياء معناها الحقيقي. 🤍</p>
+                <button class="fox-modal-close" onclick="toggleCutePopup()">إغلاق</button>
+            </div>
+        </div>
+
+        <!-- =============================================
+             PAGE 2 — HOW IT STARTED
+        ============================================== -->
+        <section class="page">
+            <div class="page-content">
+                <p class="page-label">FILE 01 — ORIGIN</p>
+                <h2>HOW IT STARTED</h2>
+                <div class="journal-entry">
+                    <div class="entry-number">01</div>
+                    <div>
+                        <p class="book-text">
+                            It all started by pure chance in a group chat, completely revolving around BTS's new album and specifically the song "Swim".
+                        </p>
+                        <p class="book-text">
+                            Honestly, I never thought I’d pay attention to anyone like this, or get drawn to his personality.
+                        </p>
+                        <p class="book-text">
+                            Random texts.<br>
+                            Late-night talks about music.<br>
+                            Little things that turned into memories.
+                        </p>
+                        <p class="book-text">
+                            Bit by bit, normal chats turned into tiny collections of details I couldn't just ignore.
+                        </p>
+                        <p class="book-text">
+                            So naturally, the only thing left to do was to save them all in one place.
+                        </p>
+                    </div>
+                </div>
+                <div class="small-note">documentation was clearly necessary.</div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PAGE 3 — THE LORE
+        ============================================== -->
+        <section class="page">
+            <div class="page-content">
+                <p class="page-label">FILE 02 — THE LORE</p>
+                <h2>THE LORE</h2>
+                <p class="book-text">Every archive needs a few recurring subjects.</p>
+
+                <div class="file-grid">
+                    <article class="lore-card">
+                        <span>01</span>
+                        <strong>BANDAQ</strong>
+                        <p>the cat who somehow became part of the documentation.</p>
+                    </article>
+                    <article class="lore-card">
+                        <span>02</span>
+                        <strong>SEPTEMBER 🍂</strong>
+                        <p>apparently an entire personality can be associated with one month.</p>
+                    </article>
+                    <article class="lore-card">
+                        <span>03</span>
+                        <strong>FOX THEORY 🦊</strong>
+                        <p>evidence exists. explanations do not.</p>
+                    </article>
+                    <article class="lore-card">
+                        <span>04</span>
+                        <strong>SWITZERLAND 🇨🇭</strong>
+                        <p>someday. presumably.</p>
+                    </article>
+                </div>
+
+                <!-- BANDAQ -->
+                <div class="bandaq-section">
+                    <button class="bandaq-trigger" onclick="showBandaq()">OPEN BANDAQ FILE</button>
+                    <div class="bandaq-photo">
+                        <img src="/gift/bandaq.jpg" alt="Bandaq">
+                    </div>
+                    <p class="bandaq-caption">SUBJECT: BANDAQ</p>
+                    <small>further attention is required.</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PAGE 4 — EVIDENCE BOARD (DETECTIVE STYLE)
+        ============================================== -->
+        <section class="page evidence-page">
+            <div class="page-content">
+                <p class="page-label">CLASSIFIED FILE 03</p>
+                <h2>THE EVIDENCE BOARD</h2>
+                <p class="book-text evidence-intro">
+                    After reviewing the available evidence, connecting all red strings to the center,<br>
+                    a rather questionable pattern began to appear.
+                </p>
+
+                <div class="evidence-board">
+                    <!-- L -->
+                    <article class="evidence-photo l-photo">
+                        <div class="photo-tape"></div>
+                        <img src="/gift/L.jpg" alt="L from Death Note">
+                        <div class="photo-label">
+                            <span>EXHIBIT A</span>
+                            <strong>L</strong>
+                            <small>logic. observation. suspicious sitting position.</small>
+                        </div>
+                    </article>
+
+                    <!-- DEXTER -->
+                    <article class="evidence-photo dexter-photo">
+                        <div class="photo-tape"></div>
+                        <img src="/gift/ديكستر.jpg" alt="Dexter Morgan">
+                        <div class="photo-label">
+                            <span>EXHIBIT B</span>
+                            <strong>DEXTER</strong>
+                            <small>calm face. questionable hobbies.</small>
+                        </div>
+                    </article>
+
+                    <!-- HANNIBAL -->
+                    <article class="evidence-photo hannibal-photo">
+                        <div class="photo-tape"></div>
+                        <img src="/gift/هانبيال.jpg" alt="Hannibal Lecter">
+                        <div class="photo-label">
+                            <span>EXHIBIT C</span>
+                            <strong>HANNIBAL</strong>
+                            <small>excellent taste. concerning conclusions.</small>
+                        </div>
+                    </article>
+
+                    <!-- CONAN -->
+                    <article class="evidence-photo conan-photo">
+                        <div class="photo-tape"></div>
+                        <img src="/gift/كونان.jpg" alt="Detective Conan">
+                        <div class="photo-label">
+                            <span>EXHIBIT D</span>
+                            <strong>CONAN</strong>
+                            <small>small detective. very large case.</small>
+                        </div>
+                    </article>
+
+                    <!-- YOUSEF / ZABOULA -->
+                    <article class="evidence-photo yousef-photo" onclick="toggleYousefEvidence()">
+                        <div class="photo-under">
+                            <span>HIDDEN NOTE</span>
+                            <strong>ZABOULA</strong>
+                            <p>The subject appears to be the mastermind behind all suspiciously good tastes.</p>
+                            <small>further investigation required.</small>
+                        </div>
+                        <div class="yousef-photo-front">
+                            <div class="photo-tape"></div>
+                            <img src="/gift/زعبولة.jpg" alt="Yousef">
+                            <div class="photo-label">
+                                <span>PRIMARY SUBJECT</span>
+                                <strong>ZABOULA</strong>
+                                <small>all strings lead here.</small>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- CONCLUSION -->
+                    <div class="evidence-conclusion">
+                        <span>PRELIMINARY CONCLUSION</span>
+                        <p>Case: unnecessarily complicated.</p>
+                        <small>All evidence points to Zaboula.</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PAGE 5 — FAVORITES (ALL MEDIA & MOVIES)
+        ============================================== -->
+        <section class="page">
+            <div class="page-content">
+                <p class="page-label">FILE 04 — CURATED TASTE</p>
+                <h2>FAVORITES & MEDIA</h2>
+                <p class="book-text">Evidence of deep psychological media and refined taste.</p>
+
+                <div class="favorites-grid">
+                    <div class="fav-item">
+                        <img src="/gift/فيلم .jpg" alt="Film 1">
+                        <small></small>
+                    </div>
+                    <div class="fav-item">
+                        <img src="/gift/فيلم3.jpg" alt="Film 3">
+                        <small></small>
+                    </div>
+                    <div class="fav-item">
+                        <img src="/gift/فيلم.jpg" alt="Film">
+                        <small></small>
+                    </div>
+                    <div class="fav-item">
+                        <img src="/gift/البطيخ المتلألأ.jpg" alt="Twinkling Watermelon">
+                        <small>🍉</small>
+                    </div>
+                    <div class="fav-item">
+                        <img src="/gift/summer strike.jpg" alt="Summer Strike">
+                        <small>Summer Strike "He looks like you"🌟</small>
+                    </div>
+                    <div class="fav-item">
+                        <img src="/gift/silence.jpg" alt="Silence">
+                        <small></small>
+                    </div>
+                    <div class="fav-item">
+                        <img src="/gift/L.jpg" alt="L">
+                        <small>Death Note "L"</small>
+                    </div>
+                    <!-- الصور الجديدة -->
+                    <div class="fav-item">
+                        <img src="/gift/look back.jpg" alt="Look Back">
+                        <small>Look Back</small>
+                    </div>
+                    <div class="fav-item">
+                        <img src="/gift/Carolina.jpg" alt="Carolina">
+                        <small>Carolina</small>
+                    </div>
+                    <div class="fav-item">
+                        <img src="/gift/Anna.jpg" alt="Anna">
+                        <small>Anna</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PAGE 6 — PERSONALITY (REFINED)
+        ============================================== -->
+        <section class="page">
+            <div class="page-content">
+                <p class="page-label">FILE 05 — ANALYSIS</p>
+                <h2>
+                    THE ONE WHO NOTICES<br>
+                    THE LITTLE THINGS
+                </h2>
+
+                <div class="book-text arabic-text">
+                    <p>أكثر ما يلفت الانتباه في يوسف أنه لا يمر بالأشياء عابراً، فهو يلاحظ أصغر التفاصيل التي قد تخطئها عيون الآخرين، وكأن عقله في حالة تحليل دائم وهادئ لكل ما يدور حوله. حين ينصت، فإنه يفعل ذلك ليقين الفهم الحقيقي لا لترتيب رد، وينظر دائماً إلى الأمور من زوايا مدهشة وغير تقليدية.</p>
+
+                    <p>والأهم من هذا كله، قلبه الحاضر دائماً لمساعدة من حوله بكل لطف وعفوية، ليمنح من يجالسه شعوراً تاماً بالأمان بلا أحكام ولا تكلف. حتى أبسط الأحاديث معه تتحول إلى مساحة مريحة للنقاش، وإذا انشغل بفكره في عالمه الخاص، تراه هادئاً كأنه يرتب أفكاره في صمت جميل؛ إنه ببساطة حضور خفيف على الروح يشبه نسيم أيلول الهادئ 🍂 ويترك أثراً عميقاً بلا صخب ولا تعقيد.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PAGE 7 — FUNNY
+        ============================================== -->
+        <section class="page">
+            <div class="page-content">
+                <p class="page-label">FILE 06 — INCIDENTS</p>
+                <h2>FUNNY</h2>
+                <div class="funny-file">
+                    <div class="funny-stamp">OBSERVED</div>
+                    <p class="book-text">Zaboula has a very light sense of humor.</p>
+                    <p class="book-text">He can make you laugh without even trying, and usually without realizing he did anything special.</p>
+                    <p class="book-text">But somewhere, somehow, he probably just made someone smile without even knowing it.</p>
+                    <p class="book-text">And then there are those moments when he gets shy after being complimented, suddenly has no idea what to say, and somehow gets himself completely stuck in an awkward little situation.</p>
+                    <p class="book-text">Which, honestly, makes him even funnier.</p>
+                    <div class="funny-conclusion">
+                        <strong>CONCLUSION</strong>
+                        <p>Naturally funny. Occasionally adorable. Easily flustered when complimented.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PAGE 8 — THINGS THAT REMIND ME OF YOU
+        ============================================== -->
+        <section class="page">
+            <div class="page-content">
+                <p class="page-label">FILE 07 — ASSOCIATIONS</p>
+                <h2>THINGS THAT<br>REMIND ME OF YOU</h2>
+
+                <div class="memory-list">
+                    <div class="memory-item">
+                        <span>01</span>
+                        <strong>BLUE</strong>
+                        <p>because apparently everything eventually comes back to blue.</p>
+                    </div>
+                    <div class="memory-item">
+                        <span>02</span>
+                        <strong>BTS</strong>
+                        <p>especially the songs that somehow become part of a conversation.</p>
+                    </div>
+                    <div class="memory-item">
+                        <span>03</span>
+                        <strong>COOKING</strong>
+                        <p>unexpectedly good. occasionally questionable.</p>
+                    </div>
+                    <div class="memory-item">
+                        <span>04</span>
+                        <strong>FOXES 🦊</strong>
+                        <p>no further explanation required.</p>
+                    </div>
+                    <div class="memory-item">
+                        <span>05</span>
+                        <strong>SWITZERLAND 🇨🇭</strong>
+                        <p>one day, presumably.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PAGE 9 — OPEN WHEN
+        ============================================== -->
+        <section class="page">
+            <div class="page-content">
+                <p class="page-label">FILE 08 — OPEN WHEN</p>
+                <h2>OPEN WHEN...</h2>
+
+                <div class="open-when">
+                    <!-- 01 — LIBRARY OF BABEL -->
+                    <button onclick="openLetter('babel')">
+                        <span class="open-number">01</span>
+                        <strong>When you need to get lost in an endless maze</strong>
+                        <small>open the infinite library door.</small>
+                    </button>
+
+                    <!-- 02 — SHIP OF THESEUS -->
+                    <button onclick="openLetter('theseus')">
+                        <span class="open-number">02</span>
+                        <strong>When you start questioning your own identity</strong>
+                        <small>the paradox of changing details.</small>
+                    </button>
+
+                    <!-- 03 — TIRED -->
+                    <button onclick="openLetter('tired')">
+                        <span class="open-number">03</span>
+                        <strong>When you are completely exhausted</strong>
+                        <small>a gentle reminder to pause.</small>
+                    </button>
+
+                    <!-- 04 — RANDOM -->
+                    <button onclick="openLetter('random')">
+                        <span class="open-number">04</span>
+                        <strong>For absolutely no reason at all</strong>
+                        <small>this file requires no justification.</small>
+                    </button>
+                </div>
+
+                <!-- LETTER RESULT -->
+                <div id="letter" class="letter">
+                    <p>اختر ملفًا.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PAGE 10 — SECRET FILE
+        ============================================== -->
+        <section class="page">
+            <div class="page-content">
+                <p class="page-label">FILE 09 — RESTRICTED</p>
+                <h2>SECRET FILE</h2>
+
+                <div class="secret-file">
+                    <div class="secret-file-header">
+                        <span>CLASSIFIED</span>
+                        <strong>DO NOT OPEN</strong>
+                    </div>
+                    <div class="secret-file-body">
+                        <p>This file contains absolutely nothing important.</p>
+                        <button class="secret-open-button" onclick="openSecretFile()">OPEN ANYWAY</button>
+                        <div id="secretMessage" class="secret-message"></div>
+                    </div>
+                </div>
+
+                <!-- SMALL HIDDEN INCIDENT -->
+                <div class="hidden-note">
+                    <button onclick="openNote()">incident report</button>
+                    <div id="incidentNote" class="incident-note">
+                        <p>Somehow, you made it this far.</p>
+                        <small>This was not part of the investigation.</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             PAGE 11 — FINAL & MORSE CODE
+        ============================================== -->
+        <section class="page">
+            <div class="page-content final-page">
+                <p class="page-label">END OF ARCHIVE</p>
+                <div class="final-mark">20 🍂</div>
+                <p class="final-text">Anyway, that's enough archiving for one day.</p>
+                <p class="final-text">I hope 20 is kind to you.</p>
+                <p class="final-text">
+                    Keep learning, keep making things, keep cooking questionable food, and don't forget to give Bandaq his deserved attention.
+                </p>
+
+                <!-- شفرة مورس لكلمة Happy Birthday -->
+                <div style="margin: 15px 0; padding: 8px 12px; background: rgba(0,0,0,0.02); border: 1px dashed #b2533e; display: inline-block; border-radius: 4px;">
+                    <span style="font-size: 0.65rem; color: #7f756d; display: block; margin-bottom: 4px; letter-spacing: 1px;">CLASSIFIED TRANSMISSION:</span>
+                    <code class="morse-beacon-blue" style="font-family: monospace; font-size: 0.8rem; letter-spacing: 2px; color: #b2533e; display: inline-block; padding: 2px 6px; border-radius: 4px;">.... .- .--. .--. -.-- / -... .. .-. - .... -.. .- -.--</code>
+                    <small style="font-size: 0.6rem; color: #666; display: block; margin-top: 4px; font-style: italic;">(decode this if you can)</small>
+                </div>
+
+                <p class="final-text">Happy birthday, Yousef.</p>
+                <p class="signature">— Ro</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- =================================================
+         CONTROLS (أزرار التنقل المصغرة بالإنجليزية)
+    ================================================== -->
+    <div class="book-controls">
+        <button id="prevBtn" onclick="previousPage()" aria-label="Previous page">← PREV</button>
+        <span id="pageCounter">1 / 11</span>
+        <button id="nextBtn" onclick="nextPage()" aria-label="Next page">NEXT →</button>
+    </div>
+
+</main>
+
+<script src="archive.js"></script>
+</body>
+</html>
